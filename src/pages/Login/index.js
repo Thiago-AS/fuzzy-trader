@@ -1,11 +1,23 @@
 import React, { useState } from "react";
 import Container from "./styles";
-import { NavLink } from "react-router-dom";
 import Input from "../../styles/components/Input";
 import Button from "../../styles/components/Button";
+import api from "../../services/api";
 
 const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
+  const [error, setError] = useState(false);
+
+  const submitLogin = async () => {
+    try {
+      const response = await api.post("auth/login", user);
+      localStorage.setItem('jwt', response.data.token);
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
   return (
     <Container>
       <div className="login-body">
@@ -35,9 +47,7 @@ const Login = () => {
             <h6>Lost your password?</h6>
             <h6>Sign Up</h6>
             <div className="button-holder">
-              <NavLink exact to="/home">
-                <Button primary="true" label="Login" />
-              </NavLink>
+              <Button primary="true" label="Login" onClick={submitLogin} />
             </div>
           </div>
         </div>
