@@ -1,62 +1,55 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  .login-header {
-    height: 130px;
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    border-bottom: solid black 1px;
-
-    h2 {
-      font-weight: bold;
-      font-size: 1.2em;
-      color: #79a12f;
-      height: 30px;
-      width: 240px;
-      margin: 40px 0px 0px 0px;
-      padding: 0px 12px;
-      text-align: center;
-    }
-
-    img {
-      height: 60px;
-      width: 300px;
-      padding: 0 12px;
-    }
-  }
+  background-color: #262931;
+  height: 100%;
 
   .login-body {
-    height: calc(100vh - 130px);
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
   }
 
   .login-holder {
-    margin-top: 32px;
+    width: 30%;
+    margin: 0px 0px 120px 0px;
   }
 
   .login-text {
     h1 {
       font-weight: bold;
       font-size: 1.76em;
-      color: #79a12f;
+      color: #ffffff;
+      text-align: center;
     }
 
     padding-bottom: 36px;
   }
 
-  form {
+  .login-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     h6 {
-      font-size: 1em;
+      flex: 30%;
+      font-size: 0.9em;
       color: #6d6d6d;
-      font-style: italic;
       margin: 0;
-      padding-top: 24px;
     }
+    .button-holder {
+      flex: 40%;
+    }
+  }
 
+  .line {
+    border-top: 1px solid #30333b;
+    margin: 20px 0px 20px 0px;
+  }
+
+  form {
     div {
       display: flex;
       flex-direction: column;

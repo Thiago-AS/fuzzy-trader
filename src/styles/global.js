@@ -25,4 +25,14 @@ export default createGlobalStyle`
     ul {
         list-style: none;
     }
+
+    ::-moz-selection { 
+        color: #FFFFFF;
+        background: #4A90D9;
+    }
+
+    ::selection {
+        color: #FFFFFF;
+        background: #4A90D9;
+    }
 `;
