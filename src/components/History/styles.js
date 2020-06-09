@@ -31,12 +31,19 @@ export const Container = styled.div`
     align-items: center;
   }
 
-  .ticker {
+  .name {
     flex: 2;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-end;
+    padding: 4px 5px 4px 10px;
+  }
+
+  .ticker {
     font-size: 25px;
     font-weight: bold;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
   }
 `;
 

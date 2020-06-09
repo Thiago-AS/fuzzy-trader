@@ -14,14 +14,14 @@ const Wallet = () => {
 
   const getWallet = async () => {
     try {
-      const jwt = localStorage.get("jwt");
-      const wallet = api.get("/wallet", {
+      const jwt = localStorage.getItem("jwt");
+      const { data } = await api.get("/wallet", {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
       });
-      console.log(wallet);
-      setWallet(wallet);
+      console.log(data);
+      setWallet(data);
     } catch (err) {
       console.log(err);
       setError(true);
@@ -35,7 +35,7 @@ const Wallet = () => {
       ) : (
         <>
           <div className="col">
-            <History data={wallet} />
+            <History wallet={wallet} />
           </div>
           <div className="col"></div>
           <div className="col"></div>
