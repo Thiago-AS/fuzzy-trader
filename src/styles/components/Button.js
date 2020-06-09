@@ -6,21 +6,22 @@ const CustomButton = styled(Button)`
     font-weight: bold;
 
     width: 100%;
-    background-color: ${props => (props.primary ? "#58B8D3" : "#cc3333")};
-    border-color: ${props => (props.primary ? "#58B8D3" : "#cc3333")};
+    background-color: #4a90d9;
+    border-color: #4a90d9;
+    text-transform: uppercase;
   }
 
   &.p-button:enabled:hover {
-    background-color: ${props => (props.primary ? "#4A90D9" : "#a61919")};
-    border-color: ${props => (props.primary ? "#4A90D9" : "#a61919")};
+    background-color: #58b8d3;
+    border-color: #58b8d3;
   }
 
   &.p-button:enabled:focus {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     outline: 0 !important;
-    background-color: ${props => (props.primary ? "#4A90D9" : "#cc3333")};
-    border-color: ${props => (props.primary ? "#4A90D9" : "#cc3333")};
+    background-color: #58b8d3;
+    border-color: #58b8d3;
   }
 `;
 

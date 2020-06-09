@@ -43,7 +43,7 @@ const Wallet = () => {
         0
       );
       const value = equity - cost;
-      const variation = (value / cost) * 100;
+      const variation = (value / cost) * 100 ? (value / cost) * 100 : 0;
       setSummaryData({ equity, cost, value, variation });
       const labels = [];
       const datasets = [

@@ -13,7 +13,7 @@ const Login = () => {
   const submitLogin = async () => {
     try {
       const response = await api.post("auth/login", user);
-      localStorage.setItem('jwt', response.data.token);
+      localStorage.setItem("jwt", response.data.token);
       history.push("/wallet");
     } catch (err) {
       console.log(err);
@@ -50,7 +50,7 @@ const Login = () => {
             <h6>Lost your password?</h6>
             <h6>Sign Up</h6>
             <div className="button-holder">
-              <Button primary="true" label="Login" onClick={submitLogin} />
+              <Button label="Login" onClick={submitLogin} />
             </div>
           </div>
         </div>
