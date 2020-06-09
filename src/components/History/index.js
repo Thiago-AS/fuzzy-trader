@@ -23,7 +23,7 @@ const History = ({ wallet }) => {
                   <p>{ticker}</p>
                 </div>
                 <p className="name">{name}</p>
-                <p className="info">US${(amount * price).toFixed(2)}</p>
+                <p className="info">$ {(amount * price).toFixed(2)}</p>
                 <p className="info">{moment(date).format("DD MMM YYYY")}</p>
               </div>
             </Card>

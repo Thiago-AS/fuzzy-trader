@@ -9,6 +9,7 @@ const Container = styled.div`
   .col {
     flex: 1;
     display: flex;
+    flex-direction: column;
   }
 
   .itens-card {

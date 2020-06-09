@@ -7,15 +7,31 @@ export const Container = styled.div`
   max-height: calc(100vh - 120px);
   border-right: 1px solid #30333b;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 
   .small-card {
-    margin-top: 30px;
     color: #ffffff;
+    flex: 1;
+    display: flex;
+    margin: 10px 10px 10px 10px;
+
+    .p-card-body {
+      flex: 1;
+      display: flex;
+      .p-card-content {
+        flex: 1;
+        display: flex;
+      }
+    }
   }
+
   .card-holder {
     display: flex;
+    flex: 1;
     flex-direction: column;
   }
+
   ::-webkit-scrollbar {
     width: 6px;
     background-color: #30333b;
@@ -24,48 +40,38 @@ export const Container = styled.div`
     background-color: #888ea0;
   }
 
-  .info {
-    flex: 1;
-    margin-right: 10px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 10px;
-    .sub {
-      font-size: 13px;
-    }
-    .num {
-      font-size: 15px;
-      font-weight: bold;
-    }
-  }
-
   .row {
+    flex: 1;
     display: flex;
   }
 
-  .ticker {
-    flex: 2;
+  .sub {
     font-size: 25px;
     font-weight: bold;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     border-bottom: 2px solid #262931;
+    flex: 1;
   }
 
-  .name {
-    flex: 2;
-    font-size: 12px;
+  .graph {
+    flex: 3;
     display: flex;
-    align-items: flex-end;
-    padding: 3px 3px 3px 5px;
-    font-weight: normal;
+
+    .p-chart {
+      flex: 1;
+      padding: 50px 0px 10px 0px;
+    }
   }
 `;
 
 export const Value = styled.div`
-  font-size: 15px;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
   font-weight: bold;
   color: ${(props) => props.color};
 `;
