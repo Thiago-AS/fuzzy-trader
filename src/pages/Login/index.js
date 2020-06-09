@@ -3,8 +3,10 @@ import Container from "./styles";
 import Input from "../../styles/components/Input";
 import Button from "../../styles/components/Button";
 import api from "../../services/api";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
   const [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState(false);
 
@@ -12,6 +14,7 @@ const Login = () => {
     try {
       const response = await api.post("auth/login", user);
       localStorage.setItem('jwt', response.data.token);
+      history.push("/wallet");
     } catch (err) {
       console.log(err);
       setError(true);

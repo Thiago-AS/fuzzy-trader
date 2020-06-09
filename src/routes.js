@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./pages/Login";
 import Layout from "./components/Layout";
+import Wallet from "./pages/Wallet"
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -21,9 +22,11 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route path={[]}>
+      <Route path={["/wallet"]}>
         <Layout>
-          <Switch></Switch>
+          <Switch>
+            <PrivateRoute path="/wallet" component={Wallet} />
+          </Switch>
         </Layout>
       </Route>
     </Switch>

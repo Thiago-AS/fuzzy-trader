@@ -1,17 +1,13 @@
 import React from "react";
 import Container from "./styles";
-// import Header from "../Header";
-// import Footer from "../Footer";
+import Header from "../Header";
 
 const Layout = ({ children }) => (
   <Container>
     <div className="fixed">
-      {/* <Header /> */}
+      <Header />
     </div>
     <div className="content">{children}</div>
-    <div className="fixed">
-      {/* <Footer /> */}
-    </div>
   </Container>
 );
 export default Layout;
