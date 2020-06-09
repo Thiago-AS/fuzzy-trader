@@ -20,7 +20,7 @@ const Wallet = () => {
 
   const getWallet = async () => {
     try {
-      const jwt = localStorage.getItem("jwt");
+      const jwt = sessionStorage.getItem("jwt");
       const wallet = await api.get("/wallet", {
         headers: {
           Authorization: `Bearer ${jwt}`,

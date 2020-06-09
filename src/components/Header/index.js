@@ -15,7 +15,7 @@ const Header = () => {
       label: "Sign Out",
       icon: "pi pi-fw pi-power-off",
       command: () => {
-        localStorage.removeItem("jwt");
+        sessionStorage.clear();
         history.push("/");
       },
     },
@@ -27,7 +27,7 @@ const Header = () => {
 
   const getUserCredit = async () => {
     try {
-      const jwt = localStorage.getItem("jwt");
+      const jwt = sessionStorage.getItem("jwt");
       const { data } = await api.get("/wallet/credit", {
         headers: {
           Authorization: `Bearer ${jwt}`,
@@ -42,8 +42,8 @@ const Header = () => {
   return (
     <Container>
       <div className="logo"> Fuzzy Trader </div>
-      <Button label="Wallet" />
-      <Button label="Stocks" />
+      <Button label="Wallet" onClick={() => history.push("/wallet")} />
+      <Button label="Stocks" onClick={() => history.push("/stocks")} />
       <Card color="#262931">
         <div className="row">
           <p>Credit: </p>

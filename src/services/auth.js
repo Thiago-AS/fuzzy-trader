@@ -1,3 +1,3 @@
 export const isAuthenticated = () => {
-  return localStorage.getItem("jwt") !== null;
+  return sessionStorage.getItem("jwt") !== null;
 };

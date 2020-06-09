@@ -13,7 +13,7 @@ const Login = () => {
   const submitLogin = async () => {
     try {
       const response = await api.post("auth/login", user);
-      localStorage.setItem("jwt", response.data.token);
+      sessionStorage.setItem("jwt", response.data.token);
       history.push("/wallet");
     } catch (err) {
       console.log(err);
