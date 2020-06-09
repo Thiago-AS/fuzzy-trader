@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
   .card-holder {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   ::-webkit-scrollbar {
     width: 6px;
@@ -25,10 +25,33 @@ export const Container = styled.div`
   }
 
   .info {
+    flex: 1;
     margin-right: 10px;
-    font-size: 16px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    .sub {
+      font-size: 13px;
+    }
+    .num {
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .ticker {
+    flex: 2;
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid #262931;
   }
 
   .name {
@@ -37,19 +60,6 @@ export const Container = styled.div`
     display: flex;
     align-items: flex-end;
     padding: 3px 3px 3px 5px;
+    font-weight: normal;
   }
-
-  .ticker {
-    font-size: 25px;
-    font-weight: bold;
-    display: flex;
-    align-items: flex-end;
-  }
-`;
-
-export const Icon = styled.div`
-  color: ${(props) => props.color};
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
 `;

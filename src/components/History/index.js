@@ -4,7 +4,7 @@ import Card from "../../styles/components/Card";
 import moment from "moment";
 import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa";
 
-const Header = ({ wallet }) => {
+const History = ({ wallet }) => {
   return (
     <Container>
       <ul>
@@ -23,7 +23,7 @@ const Header = ({ wallet }) => {
                   <p>{ticker}</p>
                 </div>
                 <p className="name">{name}</p>
-                <p className="info">R${amount * price}</p>
+                <p className="info">US${(amount * price).toFixed(2)}</p>
                 <p className="info">{moment(date).format("DD MMM YYYY")}</p>
               </div>
             </Card>
@@ -34,4 +34,4 @@ const Header = ({ wallet }) => {
   );
 };
 
-export default Header;
+export default History;

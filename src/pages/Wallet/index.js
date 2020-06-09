@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "./styles";
 import History from "../../components/History";
+import Stocks from "../../components/Stocks";
 import api from "../../services/api";
 
 const Wallet = () => {
@@ -20,7 +21,6 @@ const Wallet = () => {
           Authorization: `Bearer ${jwt}`,
         },
       });
-      console.log(data);
       setWallet(data);
     } catch (err) {
       console.log(err);
@@ -30,14 +30,16 @@ const Wallet = () => {
   };
   return (
     <Container>
-      {loading ? (
+      {loading || error ? (
         <></>
       ) : (
         <>
           <div className="col">
             <History wallet={wallet} />
           </div>
-          <div className="col"></div>
+          <div className="col">
+            <Stocks wallet={wallet} />
+          </div>
           <div className="col"></div>
         </>
       )}
