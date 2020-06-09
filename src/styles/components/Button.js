@@ -9,6 +9,7 @@ const CustomButton = styled(Button)`
     background-color: ${(props) => (props.color ? props.color : "#154a82")};
     border-color: ${(props) => (props.color ? props.color : "#154a82")};
     text-transform: uppercase;
+    border-radius: 0px;
   }
 
   &.p-button:enabled:hover {

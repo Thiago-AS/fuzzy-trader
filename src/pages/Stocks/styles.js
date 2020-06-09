@@ -11,6 +11,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
   }
+
+  .bigger {
+    flex: 2;
+  }
 `;
 
 export default Container;

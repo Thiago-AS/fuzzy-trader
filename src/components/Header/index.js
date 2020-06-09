@@ -43,7 +43,7 @@ const Header = () => {
     <Container>
       <div className="logo"> Fuzzy Trader </div>
       <Button label="Wallet" onClick={() => history.push("/wallet")} />
-      <Button label="Stocks" onClick={() => history.push("/stocks")} />
+      <Button label="Market" onClick={() => history.push("/stocks")} />
       <Card color="#262931">
         <div className="row">
           <p>Credit: </p>

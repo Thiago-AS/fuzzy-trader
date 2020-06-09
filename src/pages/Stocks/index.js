@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Container from "./styles";
 import Options from "../../components/Options";
+import OpertaionDetails from "../../components/OpertaionDetails";
 import api from "../../services/api";
 
 const Stocks = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [stocks, setStocks] = useState([]);
+  const [operation, setOperation] = useState({ stock: {}, type: "" });
+  const [showOperation, setShowOperation] = useState(false);
 
   useEffect(() => {
     getStocks();
@@ -35,10 +38,19 @@ const Stocks = () => {
         <></>
       ) : (
         <>
-          <div className="col">
-            <Options stocks={stocks} />
+          <div className="col bigger">
+            <Options
+              stocks={stocks}
+              setOperation={setOperation}
+              setShowOperation={setShowOperation}
+            />
           </div>
-          <div className="col"></div>
+          <div className="col">
+            <OpertaionDetails
+              operation={operation}
+              showOperation={showOperation}
+            />
+          </div>
         </>
       )}
     </Container>

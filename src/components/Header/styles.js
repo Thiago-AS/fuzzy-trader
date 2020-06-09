@@ -23,7 +23,6 @@ const Container = styled.div`
     font-size: 1em;
     color: #ffffff;
     margin: 12px 20px 12px 20px;
-    border-radius: 0px;
   }
 
   .profile {
@@ -81,7 +80,6 @@ const Container = styled.div`
       font-size: 1em;
       color: #ffffff;
       margin: 0px 0px 0px 0px;
-      border-radius: 0px;
       width: 40px;
     }
 

@@ -5,7 +5,14 @@ import { AccordionTab } from "primereact/accordion";
 import Button from "../../styles/components/Button";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
-const Stocks = ({ stocks }) => {
+const Stocks = ({ stocks, setOperation, setShowOperation }) => {
+  const submit = (stock, type) => {
+    setOperation({
+      stock,
+      type,
+    });
+    setShowOperation(true);
+  };
   return (
     <Container>
       <Accordion>
@@ -20,6 +27,8 @@ const Stocks = ({ stocks }) => {
               weburl,
               marketCapitalization,
               shareOutstanding,
+              _id,
+              ...rest
             },
             index
           ) => {
@@ -34,8 +43,48 @@ const Stocks = ({ stocks }) => {
                     <p className="sub">URL</p>
                     <p className="num">{weburl}</p>
                   </div>
-                  <Button label="Sell" />
-                  <Button label="Buy" />
+                  <Button
+                    label="Sell"
+                    onClick={() =>
+                      submit(
+                        {
+                          value,
+                          finnhubIndustry,
+                          logo,
+                          name,
+                          ticker,
+                          weburl,
+                          marketCapitalization,
+                          shareOutstanding,
+                          _id,
+                          variation,
+                          ...rest,
+                        },
+                        "Sell"
+                      )
+                    }
+                  />
+                  <Button
+                    label="Buy"
+                    onClick={() =>
+                      submit(
+                        {
+                          value,
+                          finnhubIndustry,
+                          logo,
+                          name,
+                          ticker,
+                          weburl,
+                          marketCapitalization,
+                          shareOutstanding,
+                          _id,
+                          variation,
+                          ...rest,
+                        },
+                        "Buy"
+                      )
+                    }
+                  />
                 </div>
                 <div className="row">
                   <div className="col">
