@@ -8,15 +8,25 @@ import { useHistory } from "react-router-dom";
 const Login = () => {
   const history = useHistory();
   const [user, setUser] = useState({ email: "", password: "" });
-  const [error, setError] = useState(false);
+  const [register, setRegister] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+  const [_, setError] = useState(false);
+  const [mode, setMode] = useState("login");
 
   const submitLogin = async () => {
     try {
-      const response = await api.post("auth/login", user);
+      let response;
+      if (mode === "login") response = await api.post("auth/login", user);
+      else response = await api.post("auth/register", register);
+
       sessionStorage.setItem("jwt", response.data.token);
       history.push("/wallet");
     } catch (err) {
-      console.log(err);
+      console.log(err.response);
+      alert(`Failed to login\n${err.response.data.error}`);
       setError(true);
     }
   };
@@ -29,28 +39,73 @@ const Login = () => {
             <h1>Fuzzy Trader</h1>
           </div>
           <form>
-            <div>
-              <Input
-                value={user.email}
-                placeholder="Email"
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
-              />
-            </div>
-            <div>
-              <Input
-                type="password"
-                value={user.password}
-                placeholder="Password"
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-              />
-            </div>
+            {mode === "login" ? (
+              <>
+                <div>
+                  <Input
+                    value={user.email}
+                    placeholder="Email"
+                    onChange={(e) =>
+                      setUser({ ...user, email: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="password"
+                    value={user.password}
+                    placeholder="Password"
+                    onChange={(e) =>
+                      setUser({ ...user, password: e.target.value })
+                    }
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div>
+                  <Input
+                    value={register.email}
+                    placeholder="Email"
+                    onChange={(e) =>
+                      setRegister({ ...register, email: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Input
+                    value={register.name}
+                    placeholder="Name"
+                    onChange={(e) =>
+                      setRegister({ ...register, name: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <Input
+                    type="password"
+                    value={register.password}
+                    placeholder="Password"
+                    onChange={(e) =>
+                      setRegister({ ...register, password: e.target.value })
+                    }
+                  />
+                </div>
+              </>
+            )}
           </form>
           <hr className="line" />
           <div className="login-footer">
             <h6>Lost your password?</h6>
-            <h6>Sign Up</h6>
             <div className="button-holder">
-              <Button label="Login" onClick={submitLogin} />
+              <Button
+                label={mode === "login" ? "sign up" : "login"}
+                onClick={() => setMode(mode === "login" ? "sign up" : "login")}
+                color="#262931"
+              />
+            </div>
+            <div className="button-holder">
+              <Button label={mode} onClick={() => submitLogin()} />
             </div>
           </div>
         </div>

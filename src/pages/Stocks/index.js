@@ -13,6 +13,10 @@ const Stocks = () => {
 
   useEffect(() => {
     getStocks();
+    const interval = setInterval(async () => {
+      refreashStocks();
+    }, 30000);
+    return () => clearInterval(interval);
   }, []);
 
   const getStocks = async () => {
@@ -28,8 +32,22 @@ const Stocks = () => {
       console.log(err);
       setError(true);
     }
-
     setLoading(false);
+  };
+
+  const refreashStocks = async () => {
+    try {
+      const jwt = sessionStorage.getItem("jwt");
+      const { data } = await api.get("/sync/stocks/value", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+      setStocks(data);
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
   };
 
   return (

@@ -33,7 +33,6 @@ const Wallet = () => {
         },
       });
       setStocksInfo(stocks.data);
-      console.log(stocks.data);
       const equity = stocks.data.reduce(
         (acc, { value, amount }) => acc + value.c * amount,
         0

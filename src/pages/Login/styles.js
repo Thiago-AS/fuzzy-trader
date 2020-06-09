@@ -41,6 +41,7 @@ const Container = styled.div`
     }
     .button-holder {
       flex: 40%;
+      margin-left: 10px;
     }
   }
 

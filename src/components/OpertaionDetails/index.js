@@ -9,8 +9,8 @@ import api from "../../services/api";
 const OpertaionDetails = ({ showOperation, operation }) => {
   const [times, setTimes] = useState({
     now: moment(Date.now()).tz("America/New_York"),
-    open: moment("09:30am", "h:mma").tz("America/New_York"),
-    close: moment("04:00pm", "h:mma").tz("America/New_York"),
+    open: moment("10:30am", "h:mma").tz("America/New_York"),
+    close: moment("05:00pm", "h:mma").tz("America/New_York"),
     status: "Closed",
   });
   const [amount, setAmount] = useState(0);
@@ -67,7 +67,6 @@ const OpertaionDetails = ({ showOperation, operation }) => {
           },
         }
       );
-      console.log(data);
       setCredit(data.credit);
     } catch (err) {
       console.log(err);

@@ -7,7 +7,7 @@ const CustomButton = styled(Button)`
 
     width: 100%;
     background-color: ${(props) => (props.color ? props.color : "#154a82")};
-    border-color: ${(props) => (props.color ? props.color : "#154a82")};
+    border-color: ${(props) => (props.border ? props.color : "#154a82")};
     text-transform: uppercase;
     border-radius: 0px;
   }
