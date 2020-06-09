@@ -43,7 +43,7 @@ export const Container = styled.div`
     color: #ffffff;
     flex: 1;
     display: flex;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 0px;
   }
 
   .p-card-body {
@@ -79,7 +79,7 @@ export const Container = styled.div`
     color: #ffffff;
     flex: 2;
     display: flex;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 0px;
 
     .title {
       margin-bottom: 20px;
@@ -126,6 +126,38 @@ export const Container = styled.div`
       flex-direction: column;
       justify-content: flex-end;
       color: #ffffff;
+    }
+  }
+
+  .credit {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    .p-button {
+      flex: 0;
+      font-size: 1em;
+      color: #ffffff;
+      margin: 0px 0px 0px 20px;
+      width: 40px;
+    }
+
+    p {
+      flex: 1;
+      font-size: 1.3em;
+      color: #ffffff;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0px 20px 0px 20px;
+      align-items: center;
+    }
+
+    .num {
+      font-weight: bold;
+    }
+
+    .p-card-body {
+      padding: 0px;
     }
   }
 

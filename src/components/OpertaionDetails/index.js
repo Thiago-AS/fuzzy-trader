@@ -14,6 +14,8 @@ const OpertaionDetails = ({ showOperation, operation }) => {
     status: "Closed",
   });
   const [amount, setAmount] = useState(0);
+  const [credit, setCredit] = useState("----");
+  const [value, setValue] = useState(0);
 
   const submitOperation = async () => {
     try {
@@ -29,11 +31,46 @@ const OpertaionDetails = ({ showOperation, operation }) => {
           Authorization: `Bearer ${jwt}`,
         },
       });
-      console.log(response);
+      setCredit(response.data.credit);
       alert("Operation done successfully");
     } catch (err) {
       console.log(err);
-      alert("Could not perform the operation");
+      alert(
+        `Could not perform the operation\nReason: ${err.response.data.message}`
+      );
+    }
+  };
+
+  const getUserCredit = async () => {
+    try {
+      const jwt = sessionStorage.getItem("jwt");
+      const { data } = await api.get("/wallet/credit", {
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
+      });
+      setCredit(data.credit);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleCreditButton = async () => {
+    try {
+      const jwt = sessionStorage.getItem("jwt");
+      const { data } = await api.post(
+        "/wallet/credit",
+        { value },
+        {
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        }
+      );
+      console.log(data);
+      setCredit(data.credit);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -43,10 +80,24 @@ const OpertaionDetails = ({ showOperation, operation }) => {
       status:
         t.now.isBefore(t.close) && t.now.isAfter(t.open) ? "Open" : "Closed",
     }));
+    getUserCredit();
   }, []);
 
   return (
     <Container>
+      <Card color="#262931">
+        <div className="credit">
+          <p>Credit: </p>
+          <p className="num">{!isNaN(credit) ? credit.toFixed(2) : credit}</p>
+          <p className="num"> + </p>
+          <InputNumber
+            value={value}
+            onChange={(e) => setValue(e.value)}
+            mode="decimal"
+          />
+          <Button icon="pi pi-plus" onClick={() => handleCreditButton()} />
+        </div>
+      </Card>
       {showOperation ? (
         <Card className="big-card">
           <div className="row">

@@ -52,51 +52,6 @@ const Container = styled.div`
       color: #ffffff;
     }
   }
-
-  .p-card {
-    flex: 2;
-    margin: 10px 20px 10px 20px;
-    display: flex;
-
-    .p-card-body {
-      flex: 1;
-      display: flex;
-      padding: 2px 2px 2px 2px;
-
-      .p-card-content {
-        flex: 1;
-        display: flex;
-      }
-    }
-  }
-
-  .row {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-
-    .p-button {
-      flex: 0;
-      font-size: 1em;
-      color: #ffffff;
-      margin: 0px 0px 0px 0px;
-      width: 40px;
-    }
-
-    p {
-      flex: 1;
-      font-size: 1.3em;
-      color: #ffffff;
-      display: flex;
-      justify-content: flex-start;
-      margin: 0px 20px 0px 20px;
-      align-items: center;
-    }
-
-    .num {
-      font-weight: bold;
-    }
-  }
 `;
 
 export default Container;
